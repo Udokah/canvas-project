@@ -216,12 +216,29 @@ button:focus{
 .board{
     float: right;
     margin:15px;
-    width: 73%;
+    width: 730px;
     height: 470px;
     background: url("../img/tiny_grid.png") #ffffff;
     padding: 8px;
     text-align: center;
     cursor:cell;
+}
+
+.board canvas{
+    position: absolute;
+    left: 520px;
+}
+
+.board #canvas1{
+    border:1px dashed blue;
+    z-index: 100;
+    background: transparent;
+}
+
+.board #canvas2{
+    z-index: 50;
+    border:1px dashed red;
+    background: transparent;
 }
 
 #overlay{
@@ -239,4 +256,48 @@ button:focus{
 #overlay img{
     width: 900px;
     margin-top: 200px;
+}
+
+.layers{
+    display: inline-block;
+    border:none;
+    width: 500px;
+    margin-left: 100px;
+    text-align: center;
+    margin-top: -15px;
+    padding:5px;
+}
+
+.layers ul{
+    display: inline;
+}
+
+.layers ul li{
+    display: inline-block;
+}
+
+.layers ul li button{
+    display: inline-block;
+    margin-right: 10px ;
+    padding:10px 60px;
+    text-transform: uppercase;
+    border:3px solid #ffffff;
+    background-color: #ffffff;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+    font-weight: bold;
+    border-radius: 4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius: 4px;
+}
+
+.layers ul li button:hover{
+    color: #fc0;
+}
+.layers ul li button.selected{
+    color: #fc0;
+    border:3px solid #fc0;
 }
