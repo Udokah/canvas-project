@@ -14,6 +14,12 @@
         <img src="assets/img/quote.jpg" title="hi hhh" />
     </div>
 
+    <div id="upgrade">
+        <span>You cannot create more than two canvas'</span>
+        <strong>Upgrade to pro-version for just <i>$9.99</i></strong><br>
+        :)
+    </div>
+
     <div class="toolbar">
         <span>Drawing Application with HTML5 Canvas</span>
         <button id="saveBtn">Download &#8595;</button>
@@ -72,13 +78,18 @@
         <canvas id="canvas2" width="720px" height="460px">
             Sorry, your browser is rubbish :P
         </canvas>
+        <canvas id="canvas3" width="720px" height="460px">
+            Sorry, your browser is rubbish :P
+        </canvas>
 
     </div>
     
     <div class="layers">
+        <button id="newLayer">add layer +</button>
         <ul>
             <li><button id="layer1">layer 1</button></li>
-            <li><button id="layer2">layer 2</button></li>
+            <li id="pick2"><button id="layer2">layer 2</button><span onclick="removeLayer(2)">-</span></li>
+            <li id="pick3"><button id="layer3">layer 3</button><span onclick="removeLayer(3)">-</span></li>
         </ul>
     </div>
 

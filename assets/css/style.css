@@ -241,7 +241,14 @@ button:focus{
     background: transparent;
 }
 
+.board #canvas3{
+    z-index: 50;
+    border:1px dashed green;
+    background: transparent;
+}
+
 #overlay{
+    display: none;
     z-index: 999;
     position: absolute;
     top:0;
@@ -260,9 +267,9 @@ button:focus{
 .layers{
     display: inline-block;
     border:none;
-    width: 500px;
-    margin-left: 100px;
-    text-align: center;
+    text-align: left;
+    width: 660px;
+    margin-left: 50px;
     margin-top: -15px;
     padding:5px;
 }
@@ -273,12 +280,12 @@ button:focus{
 
 .layers ul li{
     display: inline-block;
+    margin-right: 10px ;
 }
 
 .layers ul li button{
     display: inline-block;
-    margin-right: 10px ;
-    padding:10px 60px;
+    padding:10px 30px;
     text-transform: uppercase;
     border:3px solid #ffffff;
     background-color: #ffffff;
@@ -288,15 +295,78 @@ button:focus{
     font-size: 15px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
     font-weight: bold;
-    border-radius: 4px;
-    -moz-border-radius:4px;
-    -webkit-border-radius: 4px;
+    border-radius: 4px 0 0 4px;
+    -moz-border-radius:4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+}
+
+.layers ul li span{
+    display: inline-block;
+    margin-left: -4px;
+    padding:3px 10px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+    cursor: pointer;
+    border:3px solid #ffffff;
+    border-radius: 0 4px 4px 0;
+    -moz-border-radius: 0 4px 4px 0;
+    -webkit-border-radius: 0 4px 4px 0;
+}
+
+.layers ul li span:hover{
+    background-color: #d10000;
 }
 
 .layers ul li button:hover{
     color: #fc0;
 }
+
 .layers ul li button.selected{
     color: #fc0;
     border:3px solid #fc0;
+}
+
+#pick2,#pick3{
+    display: none;
+}
+
+#newLayer{
+    display: inline-block;
+    background-color: #fc0;
+    border:2px solid #fc0;
+    color: #333333;
+    text-transform: capitalize;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+#newLayer:hover{
+    background-color: #d6a90c;
+}
+
+#newLayer:focus{
+    background-color: #d6951b;
+    border-color: #d6951b;
+}
+
+#upgrade{
+    position: absolute;
+    display: none;
+    background-color: #ffffff;
+    padding:35px 20px;
+    text-align: center;
+    border:3px solid #d6ab00;
+    z-index: 999;
+    border-radius:5px;
+    margin-left: 400px;
+    margin-top: 200px;
+}
+
+#upgrade span{
+    display: block;
+}
+
+#upgrade i{
+    color: green;
 }

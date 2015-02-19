@@ -1,5 +1,10 @@
 var canvas1 = document.getElementById('canvas1');
 var canvas2 = document.getElementById('canvas2');
+var canvas3 = document.getElementById('canvas3');
+
+var visibleLayers = 1 ;
+var upgrade = document.getElementById('upgrade') ;
+
 var canvasClass ;
 var dragging = false ;
 
@@ -65,23 +70,57 @@ document.getElementById('overlay').addEventListener('click', function(){
 /* Activate button for first layer */
 var layer1 = document.getElementById('layer1');
 var layer2 = document.getElementById('layer2');
+var layer3 = document.getElementById('layer3');
 
 layer1.setAttribute("class","selected");
 
 layer1.addEventListener('click', function(){
-    layer2.removeAttribute("class");
-    this.setAttribute("class","selected");
     canvas1.style.zIndex = 100 ;
-    canvas2.style.zIndex = 50 ;
+    this.setAttribute("class","selected");
     initializeCanvas(canvas1);
+
+    try{ // Layer 2 may not exists
+        layer2.removeAttribute("class");
+        canvas2.style.zIndex = 50 ;
+    }catch (e){
+        console.log(e);
+    }
+
+    try{ // Layer 3 may not exists
+        layer3.removeAttribute("class");
+        canvas3.style.zIndex = 50 ;
+    }catch (e){
+        console.log(e);
+    }
 });
 
 layer2.addEventListener('click', function(){
     layer1.removeAttribute("class");
-    this.setAttribute("class","selected");
-    canvas1.style.zIndex = 50 ;
     canvas2.style.zIndex = 100 ;
+    this.setAttribute("class","selected");
     initializeCanvas(canvas2);
+
+    try{ // Layer 3 may not exists
+        layer3.removeAttribute("class");
+        canvas3.style.zIndex = 50 ;
+    }catch (e){
+        console.log(e);
+    }
+});
+
+layer3.addEventListener('click', function(){
+    layer1.removeAttribute("class");
+    canvas1.style.zIndex = 50 ;
+    canvas3.style.zIndex = 100 ;
+    this.setAttribute("class","selected");
+    initializeCanvas(canvas3);
+
+    try{ // Layer 2 may not exists
+        layer2.removeAttribute("class");
+        canvas2.style.zIndex = 50 ;
+    }catch (e){
+        console.log(e);
+    }
 });
 
 
@@ -89,22 +128,41 @@ document.getElementById('saveBtn').addEventListener('click', function(){
     canvasClass.saveImage();
 });
 
+upgrade.addEventListener('click', function(){
+    this.style.display = "none" ;
+});
 
 
-
-/* button pick effect */
-/*
-var toolBtn = document.getElementsByClassName('toolBtn');
-
-var selectEffect = function(){
-    for(var i=0; i<toolBtn.length; i++){
-        toolBtn[i].removeAttributeNode();
-    }
+var removeLayer = function(layer){
+    var l = 'pick' + layer ;
+    document.getElementById(l).style.display = "none" ;
+    layer1.click();
+    visibleLayers--;
 };
 
 
-for(var i=0; i<toolBtn.length; i++){
-    toolBtn[i].addEventListener('click', selectEffect);
-}
-*/
+document.getElementById('newLayer').addEventListener('click', function(){
+    var pick2 = document.getElementById('pick2');
+    var pick3 = document.getElementById('pick3');
+    console.log(visibleLayers);
 
+    if(visibleLayers == 1){
+        pick2.style.display = "inline-block" ;
+        layer2.click();
+        visibleLayers++;
+    }else if(visibleLayers == 2){
+        if(pick2.style.display == "none"){
+            pick2.style.display = "inline-block" ;
+            layer2.click();
+        }else{
+            pick3.style.display = "inline-block" ;
+            layer3.click();
+        }
+        visibleLayers++;
+    }else if(visibleLayers >= 3){
+        upgrade.style.display = "inline-block";
+        visibleLayers = 3 ;
+    }
+
+    console.log(visibleLayers);
+});
