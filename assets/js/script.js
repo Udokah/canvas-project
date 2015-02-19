@@ -58,7 +58,7 @@ var initializeCanvas = function(canvas){
 initializeCanvas(canvas1);
 
 /*overlay effizy*/
-document.getElementById('overlay').addEventListener('dblclick', function(){
+document.getElementById('overlay').addEventListener('click', function(){
     this.style.display = "none";
 });
 
@@ -84,6 +84,10 @@ layer2.addEventListener('click', function(){
     initializeCanvas(canvas2);
 });
 
+
+document.getElementById('saveBtn').addEventListener('click', function(){
+    canvasClass.saveImage();
+});
 
 
 

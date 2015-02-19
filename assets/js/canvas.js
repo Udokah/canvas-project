@@ -1,6 +1,4 @@
-
 /* Create the Canvas Class here */
-
 var CanvasClass = function(canvasObject){
     this.canvas = canvasObject ; // canvas object
     this.radius = 10;
@@ -36,10 +34,6 @@ CanvasClass.prototype.bindDrawingModesChangeListener = function(){
 
 CanvasClass.prototype.bindSettingsChangeListenters = function(){
     var $this = this ;
-
-    document.getElementById('saveBtn').addEventListener('click', function(){
-        $this.saveImage();
-    });
 
     /* Clear the canvas for a new drawing */
     document.getElementById('clearScreen').addEventListener('click', function(){
@@ -98,7 +92,7 @@ CanvasClass.prototype.setStrokeWidth = function(size){
 };
 
 CanvasClass.prototype.saveImage = function(){
-    var data = canvas.toDataURL();
+    var data = this.canvas.toDataURL();
     window.open(data, '_blank', 'location=0, left=500, top=300, menubar=0, height=603, width=1000, fullscreen=0');
 };
 
