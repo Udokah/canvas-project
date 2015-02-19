@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5 Canvas</title>
+    <link rel="stylesheet" href="assets/css/style.css" media="all" />
+
+
+</head>
+<body>
+<div class="wrapper">
+
+    <div id="overlay">
+        <img src="assets/img/quote.jpg" />
+    </div>
+
+    <div class="toolbar">
+        <span>Drawing Application with HTML5 Canvas</span>
+        <button id="saveBtn">Download &#8595;</button>
+        <div class="clear"></div>
+    </div>
+
+    <div class="drawingTools">
+        <ul>
+            <li>
+                <ul class="buttonList">
+                    <li><button id="pencilDraw" class="toolBtn" data-title="Pencil">&#9998;</button></li>
+                    <li><button class="drawer toolBtn" data-title="Circle">&#10061;</button></li>
+                    <li><button class="drawer toolBtn" data-title="Rectangle">&#9633;</button></li>
+                    <li><button class="drawer toolBtn" data-title="Triangle">&#9650;</button></li>
+                    <!--<li><button class="drawer" data-title="Heart"><i class="fa fa-heart-o"></i></button></li>-->
+                    <li><button id="eraser" class="toolBtn" data-title="Eraser">&#9986;</button></li>
+                    <li><button id="clearScreen" class="toolBtn" data-title="clear screen">&#10007;</button></li>
+                </ul>
+            </li>
+
+            <!--<li>-->
+                <!--<ul class="buttonList">-->
+                    <!--<li><button id="undo" data-title="Undo"><i class="fa fa-rotate-left"></i></button></li>-->
+                    <!--<li><button id="redo" data-title="re-do"><i class="fa fa-rotate-right"></i></button></li>-->
+          <!---->
+                <!--</ul>-->
+            <!--</li>-->
+
+            <li class="center"><span>Stroke Width</span>
+                <button id="widthCount" disabled>0</button><input id="strokeRadius" min="1" value="4" max="10" step="1"  type="range"/>
+                <div class="clear"></div>
+            </li>
+
+            <li class="single">
+                <span>Pencil</span>
+                <input id="pencilColor" type="color" />
+            </li>
+
+            <li class="single">
+                <span>stroke</span>
+                <input id="strokeColor" type="color" />
+            </li>
+
+            <li class="single">
+                <span>fill</span>
+                <input id="fillColor" type="color" />
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="board">
+        <canvas id="canvas" width="720px" height="460px">
+            Sorry, your browser is rubbish :P
+        </canvas>
+    </div>
+
+    <div class="clear"></div>
+</div>
+
+<script src="assets/js/canvas.js"></script>
+<script src="assets/js/script.js"></script>
+</body>
+</html>
