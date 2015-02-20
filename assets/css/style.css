@@ -226,7 +226,7 @@ button:focus{
 
 .board canvas{
     position: absolute;
-    left: 33%;
+    left: 32%;
 }
 
 .board #canvas1{
