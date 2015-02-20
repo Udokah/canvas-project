@@ -360,6 +360,7 @@ button:focus{
     border-radius:5px;
     margin-left: 400px;
     margin-top: 200px;
+    cursor: pointer;
 }
 
 #upgrade span{
@@ -367,5 +368,6 @@ button:focus{
 }
 
 #upgrade i{
+    font-style: normal;
     color: green;
 }
