@@ -35,16 +35,10 @@ CanvasClass.prototype.bindDrawingModesChangeListener = function(){
 CanvasClass.prototype.bindSettingsChangeListenters = function(){
     var $this = this ;
 
-    /* Clear the canvas for a new drawing */
-    document.getElementById('clearScreen').addEventListener('click', function(){
-        $this.context.clearRect(0, 0, $this.canvas.width, $this.canvas.height);
-    });
-
     /* setup eraser */
     document.getElementById('eraser').addEventListener('click', function(){
         $this.drawMode = this.getAttribute("data-title");
     });
-
 
     /* Set stroke and fill when pencil is clicked */
     document.getElementById('pencilDraw').addEventListener('click', function(){

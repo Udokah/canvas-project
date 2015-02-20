@@ -67,6 +67,11 @@ document.getElementById('overlay').addEventListener('click', function(){
     this.style.display = "none";
 });
 
+/* Clear the canvas for a new drawing */
+document.getElementById('clearScreen').addEventListener('click', function(){
+    canvasClass.context.clearRect(0, 0, canvasClass.canvas.width, canvasClass.canvas.height);
+});
+
 /* Activate button for first layer */
 var layer1 = document.getElementById('layer1');
 var layer2 = document.getElementById('layer2');
